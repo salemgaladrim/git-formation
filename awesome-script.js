@@ -1,33 +1,33 @@
 const fs = require("fs");
 
-function readNumbers(filename) {
+function parseNumbers(filename) {
   try {
     const data = fs.readFileSync(filename, "utf8");
-    const numbers = data
+    const nums = data
       .split("\n")
       .map((line) => line.trim())
       .filter((line) => line !== "")
       .map(Number);
-    return numbers;
+    return nums;
   } catch (err) {
     console.error("Error reading file:", err);
     return [];
   }
 }
 
-function calculateSum(numbers) {
-  return numbers.reduce((acc, curr) => acc + curr, 0);
+function computeSum(nums) {
+  return nums.reduce((acc, curr) => acc + curr, 0);
 }
 
-function calculateAverage(numbers) {
-  if (numbers.length === 0) return 0;
-  return calculateSum(numbers) / numbers.length;
+function computeAverage(nums) {
+  if (nums.length === 0) return 0;
+  return calculateSum(nums) / nums.length;
 }
 
 function main() {
-  const numbers = readNumbers("numbers.txt");
-  const total = calculateSum(numbers);
-  const average = calculateAverage(numbers);
+  const nums = parseNumbers("numbers.txt");
+  const total = computeSum(nums);
+  const average = computeAverage(nums);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
