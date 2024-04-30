@@ -15,8 +15,12 @@ function readNumbers(filename) {
   }
 }
 
-function calculateSum(numbers) {
-  return numbers.reduce((acc, curr) => acc + curr, 0);
+function calculateSumWithLoop(numbers) {
+  let total = 0;
+  numbers.foreach((num) => {
+    total += num;
+  });
+  return total;
 }
 
 function calculateAverage(numbers) {
@@ -26,7 +30,7 @@ function calculateAverage(numbers) {
 
 function main() {
   const numbers = readNumbers("numbers.txt");
-  const total = calculateSum(numbers);
+  const total = calculateSumWithLoop(numbers);
   const average = calculateAverage(numbers);
 
   console.log(`Sum: ${total}`);
