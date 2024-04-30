@@ -25,7 +25,7 @@ function calculateSumWithLoop(numbers) {
 
 function calculateAverage(numbers) {
   if (numbers.length === 0) return 0;
-  return calculateSum(numbers) / numbers.length;
+  return calculateSumWithLoop(numbers) / numbers.length;
 }
 
 function main() {
