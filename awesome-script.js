@@ -23,15 +23,18 @@ function calculateSumWithLoop(numbers) {
   return total;
 }
 
-function calculateAverage(numbers) {
-  if (numbers.length === 0) return 0;
-  return calculateSumWithLoop(numbers) / numbers.length;
+function calculateAverageInAStupidWay(numbers) {
+  let average = 0;
+  numbers.foreach((num) => {
+    average += num / numbers.length;
+  });
+  return average;
 }
 
 function main() {
   const numbers = readNumbers("numbers.txt");
   const total = calculateSumWithLoop(numbers);
-  const average = calculateAverage(numbers);
+  const average = calculateAverageInAStupidWay(numbers);
 
   console.log(`Sum: ${total}`);
   console.log(`Average: ${average}`);
