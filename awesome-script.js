@@ -32,7 +32,14 @@ function calculateAverageInAStupidWay(numbers) {
 }
 
 function main() {
-  const numbers = readNumbers("numbers.txt");
+  const filename = process.argv.find((arg, i) => {
+    if (i === 2) return arg;
+  });
+  if (!filename) {
+    console.error("Please provide a filename");
+    return;
+  }
+  const numbers = readNumbers(filename);
   const total = calculateSumWithLoop(numbers);
   const average = calculateAverageInAStupidWay(numbers);
 
