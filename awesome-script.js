@@ -17,7 +17,7 @@ function readNumbers(filename) {
 
 function calculateSumWithLoop(numbers) {
   let total = 0;
-  numbers.foreach((num) => {
+  numbers.forEach((num) => {
     total += num;
   });
   return total;
@@ -25,7 +25,7 @@ function calculateSumWithLoop(numbers) {
 
 function calculateAverageInAStupidWay(numbers) {
   let average = 0;
-  numbers.foreach((num) => {
+  numbers.forEach((num) => {
     average += num / numbers.length;
   });
   return average;
